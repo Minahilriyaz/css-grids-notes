@@ -1,0 +1,197 @@
+/**************** Grid *****************/
+/*yeh flexbox say similar hai grid mai outer container ko grid container kaha jata hai. aur andar kay alag alag items
+ko grid-item kahey gay aghr humay kisi bhi container kay uper grid ki property ko apply kerna hai tu iss kay liye property hoti hai*/
+/*Example*/
+display: grid;
+
+
+/**************** Grid Model ****************/
+/*humarah jo grid layout 2 direction mai create hota hai with the help of lines. Horizontal line ko row kehtay hai aur vertical line ko column kehtay haiiss kay andar 3 term hoti hai*/
+/*Example*/
+Grid Lines
+Grid Cell
+Grid Track
+/*Grid kay andar jo line hoti hai uss ko grid line kehtay hai.*/ 
+/*Grid kay anday lines kay hi andar kay box ko hum Grid Cell kehay gay aur iss kay andar humaray item placed hogay.*/ 
+/*Grid Track ko hum bolay gay do line kay bech ka distance.*/
+
+
+/*************** Grid Template ***************/
+/*Means Grid container kay uper kitni grid line ani chai or track ka kia size rehna chai row ko define kernay kay liye hum likhtay hai*/
+/*Example*/
+grid-template-rows: 100px 20px 40px; 
+/*iss tarah humrah pas column bhi hotay hai jo humaray pas vertical line mai work kertay hai*/
+/*Example*/
+grid-template-column: 100px 30px 40px;
+/*aik aur tarika hota hai grid-template ko value daynay ka woh hota hai auto*/
+/*Example*/
+grid-template-column: auto;
+/*auto say automatically humari space equally divide ho jati hai aik dafa auto likhnay ka matlab hai hum aik hi column banye gay aghir do daafa likh dia tu humaray jitni bhi width hai woh equally do column mai divide ho jye*/
+/*aghir hum apni available space ko equally divide kerna chatay hai tu uss kau liye humaray pas auto say better tarika hota hai repeat property*/
+/*Example*/
+grid-template-rows: repeat(count, 1fr);
+/*repeat kay andar hum do parameter hotay hai second walay ka matlab hai 1fr one fraction of 100% available space hai yeh humaray pas generally pori width hoti hai rows ki term mai aur height hoti hai tu column ki terms mai hoti hai
+tu humaray pas 100% width hai uss kay aik fraction ko humay repeat kerna hai humay kitnay track ya rows chai uss ko hum count mai likhay gay ussi similar way mai humay kitnay column chai uss ko count mai likhay gay*/
+/*similar cheez hum column kay saat bhi ker sakhtay hai*/
+/*Example*/
+grid-template-column: repeat(count, 1fr);
+/*means jab bhi 1d layout design kerna hai ya phir sirf rows kay andar item chai ya column mai chai tu uss kay liye hum flexbox ko use karey gay. grid ka uss waqt karey gay jab humay rows bhi chai aur column bhi cahi.*/
+/*issi repeat ko use kernay ka aik aur tarika hota hai iss ko char dafa likhnay ka bhi wahi matlab hai jo uper kay repeat mai hota hai*/
+/*Example*/
+grid-template-column: 1fr 1fr 1fr 1fr;
+grid-template-row: 1fr 1fr 1fr 1fr;
+/*basically jo hum repeat ko use kertay hai aur uss kay andar count ki value ko pass kertay hai ussi cheez ko likhnay ka second tarika 1fr ko utni dafa repeat kerdo*/
+/*Example*/
+grid-template-row: 1fr 1fr;
+
+
+/*************** Grid Gap **************/
+/*iss say hum row aur column kay darmian gap day sakhtay hai*/
+/*row mai gap lanay kay liye hum likhtay hai aur humay jitna gap chai woh value likhtay hai*/
+/*Example*/
+row-gap: 40px;
+/*Aur column mai gap lanay kay liye hum likhtay hai aur value jitni chai woh value likhtay hai*/
+column-gap: 40px;
+/*iss ka shorthand bhi hota hai*/
+/*Example*/
+grid-gap: 10px 20px;
+/*iss mai pehlay row ki value hoti hai aur dosri column ki value hoti hai. Aur aik single value likhnay ka matlab woh value row aur column dono per apply ho gi*/
+/*Example*/
+grid-gap: 40px; 
+
+
+/****************** Grid Column **************/
+/*aghir hum kisi bhi particular item ko place kerna chatay hai starting mai ya ending mai tu uss kay liye grid column property ka use kertay hai*/
+/*aghir humaray layout mai mutiple column aur row hai aur hum chatay hai humarah jo column wise item hai aur hum iss clock wise item ko line 1 say lay ker line 4 tak places kerna chatay hai tu uss kay liye hum iss ka use kertay hai*/
+/*iss kay liye do property hoti hai*/
+/*Example*/
+grid-column-start: 1;
+grid-column-end: 3;
+/*hum chahay inn dono property ko combine bhi ker sakhtay hai*/ 
+/*Example*/
+grid-column: 1/4;
+/*iss mai phelay starting aur phir ending column likhtay hai*/
+/*iss kay illawah aik aur tareeqa hota hai apni column property ko define kernay ka jiss kay andar hum sirf starting column likhtay hai jesay hum nay 1 say 4 mai jana hai tu hum likh sakhtay hai starting column 1/span number means starting line kay bad ap ko kitnay box ya cell chai*/
+/*Example*/
+grid-column: 1 / span 3; 
+/*span means ap ko starting kay bad kitnay aur column chai iss ka bhi wahi same matlab hai jo 1/4 ka tha.*/
+
+
+/************* Grid Row ************/
+/*jiss tarah humaray pass grid-column property hoti hai ussi tarah humaray pass grid-row property hoti hai
+bas itna farq hota hai grid-row property vertical line mai work kerti hai*/
+/*Example*/
+grid-row-start: 1;
+grid-row-end: 3;
+/*aghir hum chahay inn dono property ko combine bhi ker sakhtay hai*/
+/*Example*/
+grid-row: 1/4
+/*iss kay illawa hum row property ko aik aur tareeqay say define ker sakhtay hai jiss ka tarika column ki tarah hota hai*/
+/*Example*/
+grid-row: 1 / span 2;
+/*aur iss tarah say hum grid kay liye uss ka column or row bhi set ker sakhtay hai*/ 
+
+
+/**************** Grid Common Properties ****************/
+/*grid ki kuch properties hoti hai jinn ko hum element kay alignment kay liye use kertay hai aghir hum nay item ko horizentally align kerna hai tu uss kay 2 properties ka use kertay hai*/
+/*Example*/
+justify-items: start; /*iss say container kay saray item start mai ho jye gay*/
+justify-items: end; /*iss say container kay saray item end mai ho jye gay*/
+justify-items: center; /*iss say container kay saray item center mai ho jye gay*/
+/*iss say hum container kay saray item ko justify kernay kay liye use kertay hai*/
+/*Aghir humay kisi aik item ko dosri jagah placed kerna hai tu uss kay liye hum iss property ko use kertay hai*/
+/*Example*/
+justify-self: start;
+/*iss tarah hum justify-items aur justify-self ka use kertay hai*/
+/*jiss tarah humaray pas justify property hoti hai wasay hi humaray pass align property hoti hai jo verticle direction mai work kertay hai iss mai hum container kay saray item kay liye iss property ka use kertay hai*/
+/*Example*/
+align-items: start; /*iss say vertial direction mai  container kay saray item start place ho jye gay*/
+align-items:  end; /*iss say vertical direction mai container kay saray item end mai chalay jye gay*/
+align-items: center; /*iss say verticle direction mai container kay saray item center mai chalay jye gay*/
+/*Aghir hum container kay kisi aik item ko verticle direction mai kai aur places kerna hai tu iss kay liye hum iss ka use kertay hai/*
+align-self: start;
+Aghir humay column aur row dono kay liye same align chai tu iss kay hum iss ko use kertay hai
+ saray kay sary  container kay liye hum placed-items ka use ker kertay hai
+ /*Example*/
+ place-items: center;
+ /*iss say saray kay saray item center mai chalay jye gay*/
+ /*aur individual item kay liye hum placed-self ka use kertay hai*/
+ /*Example*/
+ place-self: end;
+ /*yeh item cell kay end mai chala jye ga vertically bhi aur horizontally bhi*/ 
+display: grid; /*kernay say humarah container hai woh aik block item ki tarah behave kerta hai*/
+/*aghir kisi grid container ko aik inline item ki tarah display kervana chatay hai tu iss kay liye display ko iss tarah use ker sakhtay hai*/
+/*Example*/
+display: inline-grid;
+
+
+/******************* Media Queries ****************/
+/*jesay hi mari screen orientation landscape ho jye tu hum apnay h1 ka background color change kerday*/
+/*Example*/
+@media (orientation: landscape) {
+    h1{
+        background-color: blue;
+        color:cornflowerblue;
+    }
+}
+
+
+/**************** z-index ***************/
+/*means yeh batana websites kay uper konsi cheez uper walay level per aye gi aur konsi cheez nichay walay level per aye gi jab bhi element aik dosray kay uper a jatay hai unn ki layer ban jati hai tu waha per aik stack ki form ban jati hai stack mean levels jesay hum nay first cheez rakh di aur uss kay uper dosri aur phir third rakh di aur uss kay uper hi forth cheez rakh di tu woh rakhi huee chizay humarah stack kehlai ga 
+iss say asa struture banta hai means places kay uper places rakh di tu uss ko hum stack kehtay hai tu ussi tareeqay ka stack humray element say banta hai jab bhi hum apnay web page kay uper apnay element ko create kertay hai 
+jab bhi hum element ka stack level control kerna chatay hai yani humay screen per konsi cheez uper dikhani hai aur konsi cheez nichay dikhani hai jab bhi do element overlap karey tu uss kay liye hum jiss property ko use kertay hai woh z-index property hai jiss ki z-index zyada hogi woh screen per samnay ki taraf nazar aye ga aur kam wala element uss kay pichay chala jye ga
+by diffault saray element ka z-index zero hota hai.*/
+/*Example*/
+z-index: auto 0;
+/*hum issay auto bhi kehtay hai means automatically saray element same level per hotay hai z-index sirf unn element kay saat set sakhtay hai jinn ko hum nay koi position di hoti hai aghir humay kisi element kay z-index ko change kerna hai tu uss kay liye uss ki position static ya dafault nahi honi chai bulkay uss ki position absolute hun ya relative ya koi aur position honi chai static aur default position kay liye z-index ki value change nahi hun sakhti iss kay illawah hum z-index ko negative aur positive dono set ker sakhtay hai
+/*Example*/
+z-index: 2;
+z-index: -1;
+j/*itna z-index positive hoga utna hi woh bahir ki taraf nazar aye ga means upper level ki taraf chala jye ga*/
+/*aur jitna bhi z-index negative hoga utna hi woh low level ki taraf chal jye ga means pichay ki taraf show hoga*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
